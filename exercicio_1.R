@@ -44,7 +44,6 @@ symptomsForAge.freq[1:3]
 symptomsRecod = data$`SYM_One Row Coded Symptoms`
 symptomsRecod.freq = sort(table(unlist(strsplit(symptoms, ", "))), decreasing = TRUE)
 
-# Step 1
 output_csv <- function(data, names){ 
   folder_path <- "./datasets/test-csv/"
   
