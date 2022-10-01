@@ -1,7 +1,7 @@
 # Solução do Exercício 1 em R
 
 # Imports
-install.packages("tidyverse")
+# install.packages("tidyverse")
 
 library(tidyverse)
 library(purrr)
@@ -41,17 +41,3 @@ symptomsForAge.freq[1:3]
 
 
 # 4. Usando o `purrr`, escreva em uma pasta 10 tabelas diferentes com as **10 reações mais recorrentes** (uma tabela para cada reação).
-symptomsRecod = data$`SYM_One Row Coded Symptoms`
-symptomsRecod.freq = sort(table(unlist(strsplit(symptoms, ", "))), decreasing = TRUE)
-
-output_csv <- function(data, names){ 
-  folder_path <- "./datasets/test-csv/"
-  
-  write_csv(data, paste0(folder_path, "test-excel-", names, ".csv"))
-}
-
-symptomsRecod.freq[1:10]
-
-list(data = symptomsRecod.freq,
-     names = names(symptomsRecod.freq)) %>% 
-  purrr::pmap(output_csv) 
